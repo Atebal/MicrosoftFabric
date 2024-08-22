@@ -1,0 +1,42 @@
+{
+  "config": "{\"version\":\"5.51\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU02\",\"version\":\"5.53\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU02",
+            "path": "BaseThemes/CY24SU02.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"dfb17c4c537056a1d0ba\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.955555555555556,\"y\":0,\"z\":0,\"width\":685.5111111111111,\"height\":436.6222222222222,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"76088d07-23fa-46b6-86c3-8adea7e3bea4 (2).Name\"},{\"queryRef\":\"76088d07-23fa-46b6-86c3-8adea7e3bea4 (2).Value\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"7\",\"Entity\":\"76088d07-23fa-46b6-86c3-8adea7e3bea4 (2)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"7\"}},\"Property\":\"Value\"},\"Name\":\"76088d07-23fa-46b6-86c3-8adea7e3bea4 (2).Value\",\"NativeReferenceName\":\"Value\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"7\"}},\"Property\":\"Name\"},\"Name\":\"76088d07-23fa-46b6-86c3-8adea7e3bea4 (2).Name\",\"NativeReferenceName\":\"Name\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 436.62,
+          "width": 685.51,
+          "x": 9.96,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

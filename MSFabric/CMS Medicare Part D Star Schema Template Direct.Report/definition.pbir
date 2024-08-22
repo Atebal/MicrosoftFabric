@@ -1,0 +1,9 @@
+{
+  "version": "4.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../CMS Medicare Part D Star Schema Template Direct.SemanticModel"
+    },
+    "byConnection": null
+  }
+}

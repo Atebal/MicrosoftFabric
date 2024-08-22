@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "CMS Medicare Part D Star Schema Template Direct"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "125f6852-773a-4c83-82a1-e1e649bb3fc7"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "RLSWithDynamicMParameters"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "78f8c31b-09c2-48ba-9af1-84198a138f3f"
+  }
+}
