@@ -1,0 +1,1033 @@
+{
+  "compatibilityLevel": 1567,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"DirectQuery to AS - HighLoadLake\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "1"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.127.1327.0 (24.03)"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DaxQueryView_Desktop\"]"
+      }
+    ],
+    "culture": "en-IN",
+    "cultures": [
+      {
+        "name": "en-IN",
+        "linguisticMetadata": {
+          "content": {
+            "Entities": {
+              "cms_provider_dim_drug.brnd_name": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "cms_provider_dim_drug",
+                    "ConceptualProperty": "Brnd_Name"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "Brand Name": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "cms_provider_dim_drug.gnrc_name": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "cms_provider_dim_drug",
+                    "ConceptualProperty": "Gnrc_Name"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "Generic Name": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "cms_provider_dim_geography.prscrbr_city_state": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "cms_provider_dim_geography",
+                    "ConceptualProperty": "Prscrbr_City_State"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "Prescriber City State": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "cms_provider_dim_geography.prscrbr_state_abrvtn": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "cms_provider_dim_geography",
+                    "ConceptualProperty": "Prscrbr_State_Abrvtn"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "Prescriber State": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "cms_provider_dim_provider.prscrbr_full_name": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "cms_provider_dim_provider",
+                    "ConceptualProperty": "Prscrbr_Full_Name"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "Prescriber Full Name": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "cms_provider_dim_provider.prscrbr_type": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "cms_provider_dim_provider",
+                    "ConceptualProperty": "Prscrbr_Type"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "Prescriber Type": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              }
+            },
+            "Language": "en-US",
+            "Version": "2.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "expressions": [
+      {
+        "name": "DirectQuery to AS - HighLoadLake",
+        "annotations": [
+          {
+            "name": "PBI_IncludeFutureArtifacts",
+            "value": "True"
+          },
+          {
+            "name": "PBI_RemovedChildren",
+            "value": "[{\"remoteItemId\":{\"analysisServicesObject\":{\"sourceName\":null,\"sourceLineageTag\":\"780c4a21-4ba0-45db-9126-99e903da3d97\"}},\"objectType\":\"Table\"}]"
+          }
+        ],
+        "expression": [
+          "let",
+          "    Source = AnalysisServices.Database(\"powerbi://api.powerbi.com/v1.0/myorg/MyDp600\", \"HighLoadLake\"),",
+          "    Cubes = Table.Combine(Source[Data]),",
+          "    Cube = Cubes{[Id=\"abb657fa-da2b-4856-abbd-823904ae3f09\", Kind=\"Cube\"]}[Data]",
+          "in",
+          "    Cube"
+        ],
+        "kind": "m",
+        "lineageTag": "0cddaf75-cc94-4e75-b012-015b56bc34f7"
+      }
+    ],
+    "relationships": [
+      {
+        "name": "9be785d7-997f-47bc-8465-08446fd4eab8",
+        "fromColumn": "Year",
+        "fromTable": "cms_provider_dim_year",
+        "toColumn": "Year",
+        "toTable": "cms_provider_drug_costs_star"
+      },
+      {
+        "name": "df5b6bd3-e1f7-4012-88a3-e5c0f2d1a546",
+        "fromColumn": "geo_key",
+        "fromTable": "cms_provider_drug_costs_star",
+        "toColumn": "geo_key",
+        "toTable": "cms_provider_dim_geography"
+      },
+      {
+        "name": "2b838f64-92ec-4e67-a3a0-76d588615c68",
+        "fromColumn": "provider_key",
+        "fromTable": "cms_provider_drug_costs_star",
+        "toColumn": "provider_key",
+        "toTable": "cms_provider_dim_provider"
+      },
+      {
+        "name": "39548995-c1c4-438c-a5bd-bd7b688d95aa",
+        "fromColumn": "drug_key",
+        "fromTable": "cms_provider_drug_costs_star",
+        "toColumn": "drug_key",
+        "toTable": "cms_provider_dim_drug"
+      }
+    ],
+    "sourceQueryCulture": "en-IN",
+    "tables": [
+      {
+        "name": "cms_provider_dim_year",
+        "columns": [
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "d2b02643-43c9-43df-8820-1c014557e117",
+            "sourceColumn": "Year",
+            "sourceLineageTag": "168e9987-3742-406b-8d87-625ceff3ce6e",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Year_Date_Key",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "dateTime",
+            "formatString": "General Number",
+            "lineageTag": "b24ca6f3-2dbf-4478-ae63-c74d3cb08157",
+            "sourceColumn": "Year_Date_Key",
+            "sourceLineageTag": "d8a9b4d2-708a-4506-ad27-4551ec863327",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "ec228051-6424-4a34-95ae-2ff03357050f",
+        "partitions": [
+          {
+            "name": "cms_provider_dim_year",
+            "mode": "directQuery",
+            "source": {
+              "entityName": "cms_provider_dim_year",
+              "expressionSource": "DirectQuery to AS - HighLoadLake",
+              "type": "entity"
+            }
+          }
+        ],
+        "sourceLineageTag": "999885b8-af42-4d19-9734-496c51796cef"
+      },
+      {
+        "name": "cms_provider_dim_geography",
+        "columns": [
+          {
+            "name": "Prscrbr_City",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "string",
+            "lineageTag": "afbce769-2d86-4271-a85b-13630b56ee45",
+            "sourceColumn": "Prscrbr_City",
+            "sourceLineageTag": "1a218397-60e1-438b-a8d0-ca839dfdb74d",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Prscrbr_City_State",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "string",
+            "lineageTag": "ef17a85a-41c1-44fc-8731-b4439384ffaf",
+            "sourceColumn": "Prscrbr_City_State",
+            "sourceLineageTag": "f37e639a-2bc2-4810-a24d-7593dab95a7e",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Prscrbr_State_Abrvtn",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "string",
+            "lineageTag": "6463a2f5-d472-48cd-b55b-3f1bfae33b97",
+            "sourceColumn": "Prscrbr_State_Abrvtn",
+            "sourceLineageTag": "b53e839f-0167-4d7d-a28a-20f05290e987",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Prscrbr_State_FIPS",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "string",
+            "lineageTag": "f7aeef45-7edb-4bf8-a468-dd4519b0592b",
+            "sourceColumn": "Prscrbr_State_FIPS",
+            "sourceLineageTag": "0fad9d3a-f01d-43cf-af18-6d810491c7ee",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Max_Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "3b46bb28-ac91-43df-91e0-c0b5266f0b94",
+            "sourceColumn": "Max_Year",
+            "sourceLineageTag": "41e265f2-00e2-43bb-8ad2-1470401aaded",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Min_Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "a266bed7-3685-4ce1-8a87-c0ea4788b481",
+            "sourceColumn": "Min_Year",
+            "sourceLineageTag": "c7eec1f1-981b-4c0f-be2a-f87b5b2b554b",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "geo_key",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "int64",
+            "formatString": "0",
+            "isNullable": false,
+            "lineageTag": "8b1873c9-4878-4099-8cb6-89d84f5cae00",
+            "sourceColumn": "geo_key",
+            "sourceLineageTag": "42249f07-878b-47a2-aa91-aed730463902",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "4cd356c7-edea-4d06-8f66-2abebb6fcf40",
+        "partitions": [
+          {
+            "name": "cms_provider_dim_geography",
+            "mode": "directQuery",
+            "source": {
+              "entityName": "cms_provider_dim_geography",
+              "expressionSource": "DirectQuery to AS - HighLoadLake",
+              "type": "entity"
+            }
+          }
+        ],
+        "sourceLineageTag": "c647b905-48bb-4900-95a5-11c2140b52c7"
+      },
+      {
+        "name": "cms_provider_dim_provider",
+        "columns": [
+          {
+            "name": "Prscrbr_First_Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "string",
+            "lineageTag": "0797eb32-5c4f-4f86-b90d-63115134b23e",
+            "sourceColumn": "Prscrbr_First_Name",
+            "sourceLineageTag": "b755d93d-f666-4cba-b501-e689940db43d",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Prscrbr_Full_Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "string",
+            "lineageTag": "1eec66e7-234f-485f-8a21-fabd7d1dcb2e",
+            "sourceColumn": "Prscrbr_Full_Name",
+            "sourceLineageTag": "06c476bd-e8a0-4f75-8bdc-37468b6b232e",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Prscrbr_Last_Org_Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "string",
+            "lineageTag": "c795feae-ea77-4b5e-be14-d26cc18447e4",
+            "sourceColumn": "Prscrbr_Last_Org_Name",
+            "sourceLineageTag": "bc2c980b-a71f-4734-9ca3-406133a1ed14",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Prscrbr_NPI",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "ca5bf6b8-a776-4bf2-831b-c56cfd5a8a96",
+            "sourceColumn": "Prscrbr_NPI",
+            "sourceLineageTag": "50a6ce76-9499-4a2d-9b86-3fb129416823",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Prscrbr_Type",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "string",
+            "lineageTag": "cdf9dc90-3b26-4ff4-8713-83654d5578d0",
+            "sourceColumn": "Prscrbr_Type",
+            "sourceLineageTag": "feb6defd-bcd6-415d-8e54-bbff16d410e5",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Prscrbr_Type_Src",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "string",
+            "lineageTag": "4969fa1e-37ac-49a7-b5cb-dd9cabee67d0",
+            "sourceColumn": "Prscrbr_Type_Src",
+            "sourceLineageTag": "85c29969-3764-4e45-acda-11daaf5d3d22",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Max_Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "23bd1b64-63ca-4abd-8f59-d5c8a67ae37e",
+            "sourceColumn": "Max_Year",
+            "sourceLineageTag": "fd8e4f75-7ca6-47b7-a0db-512d671824ab",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Min_Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "3a59f33c-206a-43d3-985c-d5377ae60764",
+            "sourceColumn": "Min_Year",
+            "sourceLineageTag": "fc1f7c33-fa6a-4a05-a15b-1b306e8d0645",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "provider_key",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "int64",
+            "formatString": "0",
+            "isNullable": false,
+            "lineageTag": "c8289126-b7e4-4da7-899d-735c8bbe6c99",
+            "sourceColumn": "provider_key",
+            "sourceLineageTag": "1e21461b-f45f-4c89-ad51-a0b22fbb772e",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "1edcea88-9ab7-47fd-85ab-94bcb2cf4d86",
+        "partitions": [
+          {
+            "name": "cms_provider_dim_provider",
+            "mode": "directQuery",
+            "source": {
+              "entityName": "cms_provider_dim_provider",
+              "expressionSource": "DirectQuery to AS - HighLoadLake",
+              "type": "entity"
+            }
+          }
+        ],
+        "sourceLineageTag": "091e38d5-ac8b-4ccf-93d1-3dfbc126d59a"
+      },
+      {
+        "name": "cms_provider_dim_drug",
+        "columns": [
+          {
+            "name": "Brnd_Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "string",
+            "lineageTag": "2aa9a913-8428-481e-af33-01e6add8d9f6",
+            "sourceColumn": "Brnd_Name",
+            "sourceLineageTag": "bc45ee39-ba93-4127-9277-279a7215eebf",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Gnrc_Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "string",
+            "lineageTag": "e4be48dd-0fd0-4829-8028-d925844191c5",
+            "sourceColumn": "Gnrc_Name",
+            "sourceLineageTag": "e92f5a87-27eb-44fb-b36b-796546b94959",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Max_Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "a51420d1-96ca-4799-94cb-d592f9fb11d0",
+            "sourceColumn": "Max_Year",
+            "sourceLineageTag": "4c034a8a-926b-4309-9787-2acd97eafad6",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Min_Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "ec72b95a-aa5f-4001-824b-53f62c631f85",
+            "sourceColumn": "Min_Year",
+            "sourceLineageTag": "60b3626f-1f5e-405e-af91-64ed9dfef814",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "drug_key",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "int64",
+            "formatString": "0",
+            "isNullable": false,
+            "lineageTag": "acb00d16-aacd-4c10-9311-24d09c794f47",
+            "sourceColumn": "drug_key",
+            "sourceLineageTag": "31692bdf-9a9d-4994-954c-6b2d7db27c0b",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "e26849c4-001c-48fd-b50b-fcd6de8c85a3",
+        "partitions": [
+          {
+            "name": "cms_provider_dim_drug",
+            "mode": "directQuery",
+            "source": {
+              "entityName": "cms_provider_dim_drug",
+              "expressionSource": "DirectQuery to AS - HighLoadLake",
+              "type": "entity"
+            }
+          }
+        ],
+        "sourceLineageTag": "51e557a0-76a4-421a-bd5c-489a4f31b581"
+      },
+      {
+        "name": "cms_provider_drug_costs_star",
+        "columns": [
+          {
+            "name": "GE65_Bene_Sprsn_Flag",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "string",
+            "lineageTag": "a111f1d2-4b93-4ac0-ad8b-20e37c5074e9",
+            "sourceColumn": "GE65_Bene_Sprsn_Flag",
+            "sourceLineageTag": "7cd64732-ba92-49d3-bac7-a63acdefbbee",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "GE65_Sprsn_Flag",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "string",
+            "lineageTag": "725263a1-ad16-4a02-8d92-40a95c1f2e1b",
+            "sourceColumn": "GE65_Sprsn_Flag",
+            "sourceLineageTag": "217dbd63-772a-408e-96b7-f1b0ee6ff599",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "GE65_Tot_30day_Fills",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-IN\"}"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "decimal",
+            "formatString": "\"₹\"\\ #,0.###############;#,0.###############\\ -\"₹\";\"₹\"\\ #,0.###############",
+            "lineageTag": "71ca063e-2f0c-47a9-a2ba-98433f7c3d9e",
+            "sourceColumn": "GE65_Tot_30day_Fills",
+            "sourceLineageTag": "a9fe71d5-cc84-487e-a0a1-c12f60dd5ddc",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "GE65_Tot_Benes",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "8d7a4cbf-9f25-4ec5-9c6d-8b95b4eb5d80",
+            "sourceColumn": "GE65_Tot_Benes",
+            "sourceLineageTag": "2653769e-0e85-4be5-834d-8a674f2b46e6",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "GE65_Tot_Clms",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "877fcbbe-7979-41ce-8d05-4539c3bd0b46",
+            "sourceColumn": "GE65_Tot_Clms",
+            "sourceLineageTag": "8aa15621-6dc1-4011-a8a7-39962770b43c",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "GE65_Tot_Day_Suply",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "2959249e-14c8-45c4-aa4e-11dcad0e8baf",
+            "sourceColumn": "GE65_Tot_Day_Suply",
+            "sourceLineageTag": "fc59469a-2c36-4fd8-8387-5a8fa4a275bc",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "GE65_Tot_Drug_Cst",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-IN\"}"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "decimal",
+            "formatString": "\"₹\"\\ #,0.###############;#,0.###############\\ -\"₹\";\"₹\"\\ #,0.###############",
+            "lineageTag": "9f48240c-e740-4a47-a832-7fe2fea08a8d",
+            "sourceColumn": "GE65_Tot_Drug_Cst",
+            "sourceLineageTag": "6e11930b-7cce-4786-9e2f-15a8998feb52",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Tot_30day_Fills",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-IN\"}"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "decimal",
+            "formatString": "\"₹\"\\ #,0.###############;#,0.###############\\ -\"₹\";\"₹\"\\ #,0.###############",
+            "lineageTag": "e5da53ec-2aa9-40b2-add9-b0a46b1cc4d4",
+            "sourceColumn": "Tot_30day_Fills",
+            "sourceLineageTag": "bc34915f-8f95-4c32-a099-ce0928b1e4fa",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Tot_Benes",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "31ce8337-82ad-4641-ad62-9f8da6569346",
+            "sourceColumn": "Tot_Benes",
+            "sourceLineageTag": "eac35a04-ab8b-4151-b065-fece7f53c3b4",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Tot_Clms",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "e4c9cb5e-cfa1-4b82-80eb-8b7dcbee83aa",
+            "sourceColumn": "Tot_Clms",
+            "sourceLineageTag": "246e0617-0a6b-4ad0-90f9-0011958b4c18",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Tot_Day_Suply",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "cbf4aa8a-0ad9-4780-a634-da9dbc7f7dbf",
+            "sourceColumn": "Tot_Day_Suply",
+            "sourceLineageTag": "738cfd25-73e0-4f02-859d-7eabc916eb99",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Tot_Drug_Cst",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-IN\"}"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "decimal",
+            "formatString": "\"₹\"\\ #,0.###############;#,0.###############\\ -\"₹\";\"₹\"\\ #,0.###############",
+            "lineageTag": "7f13db5f-9d9e-428e-8d53-c0e1859df6e4",
+            "sourceColumn": "Tot_Drug_Cst",
+            "sourceLineageTag": "6296772f-3ff2-49a7-98f6-2cd8f0d368bb",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "int64",
+            "formatString": "0",
+            "isNullable": false,
+            "lineageTag": "2224feb7-c649-43bc-a703-b6120d338f46",
+            "sourceColumn": "Year",
+            "sourceLineageTag": "9d222f4b-f742-405b-a4f5-9fa570511c78",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "drug_key",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "90bbacef-8b8e-44fe-80ad-debe863a0e84",
+            "sourceColumn": "drug_key",
+            "sourceLineageTag": "36f3c409-da18-4cfc-967a-b7254af6cf51",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "geo_key",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "a9c74b75-bdba-4f3c-bfcd-2a4d23acbeb7",
+            "sourceColumn": "geo_key",
+            "sourceLineageTag": "82178d84-2831-4ec1-8f97-ca07f7bb5ff1",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "provider_key",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "Uncategorized",
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "ed8e4978-05db-4048-ae8e-355735c53b35",
+            "sourceColumn": "provider_key",
+            "sourceLineageTag": "84853723-81db-41fd-bd68-2b641254e8e7",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "31bbb25c-a888-4a45-acc7-050dcbc8bb3d",
+        "measures": [
+          {
+            "name": "Row Count",
+            "dataCategory": "Uncategorized",
+            "expression": "EXTERNALMEASURE(\"Row Count\", INTEGER, \"DirectQuery to AS - HighLoadLake\")",
+            "formatString": "0",
+            "lineageTag": "ee6cf652-4103-4fa4-9104-f5ac6b39f7ff",
+            "sourceLineageTag": "fd0bc2ce-81f5-41b6-9ac6-04d5ea518402"
+          },
+          {
+            "name": "Total Claims",
+            "dataCategory": "Uncategorized",
+            "expression": "EXTERNALMEASURE(\"Total Claims\", INTEGER, \"DirectQuery to AS - HighLoadLake\")",
+            "formatString": "0",
+            "lineageTag": "8dda0ccc-2415-4e4d-9cd3-fd928207ada2",
+            "sourceLineageTag": "b4416181-103f-49bb-b071-751f1bf4f496"
+          },
+          {
+            "name": "Total Beneficiaries",
+            "dataCategory": "Uncategorized",
+            "expression": "EXTERNALMEASURE(\"Total Beneficiaries\", INTEGER, \"DirectQuery to AS - HighLoadLake\")",
+            "formatString": "0",
+            "lineageTag": "31338d5d-aa55-49d2-ad00-4ff0a2364140",
+            "sourceLineageTag": "8a76e627-7bb6-44f0-a64a-470ecf585108"
+          },
+          {
+            "name": "Total 30 Day Fills",
+            "dataCategory": "Uncategorized",
+            "expression": "EXTERNALMEASURE(\"Total 30 Day Fills\", CURRENCY, \"DirectQuery to AS - HighLoadLake\")",
+            "formatString": "#,0.00",
+            "lineageTag": "e0eeeab7-1aba-493e-bebb-9a8361903b1e",
+            "sourceLineageTag": "67689a86-2500-4327-8be3-72318dd2c7ca"
+          },
+          {
+            "name": "Total Days Supply",
+            "dataCategory": "Uncategorized",
+            "expression": "EXTERNALMEASURE(\"Total Days Supply\", INTEGER, \"DirectQuery to AS - HighLoadLake\")",
+            "formatString": "0",
+            "lineageTag": "b5b15edd-85bb-4678-8a17-4b078e1960e7",
+            "sourceLineageTag": "248aa4e5-a5c1-46d2-adf1-469c8ebc6c9c"
+          },
+          {
+            "name": "Total Drug Cost",
+            "dataCategory": "Uncategorized",
+            "expression": "EXTERNALMEASURE(\"Total Drug Cost\", CURRENCY, \"DirectQuery to AS - HighLoadLake\")",
+            "formatString": "\\$#,0.###############;(\\$#,0.###############);\\$#,0.###############",
+            "lineageTag": "d14d3d2c-e368-4808-a8a9-4386c98aabce",
+            "sourceLineageTag": "665bf817-1280-4b8e-8a90-9402d3ed75a3"
+          },
+          {
+            "name": "Cost per Claim",
+            "dataCategory": "Uncategorized",
+            "expression": "EXTERNALMEASURE(\"Cost per Claim\", CURRENCY, \"DirectQuery to AS - HighLoadLake\")",
+            "formatString": "\\$#,0.###############;(\\$#,0.###############);\\$#,0.###############",
+            "lineageTag": "db05b792-e69e-4188-8669-e4df20e27023",
+            "sourceLineageTag": "a0be7fa6-5ed8-4411-9137-d1770ce4e26e"
+          },
+          {
+            "name": "Cost per Day",
+            "dataCategory": "Uncategorized",
+            "expression": "EXTERNALMEASURE(\"Cost per Day\", CURRENCY, \"DirectQuery to AS - HighLoadLake\")",
+            "formatString": "\\$#,0.###############;(\\$#,0.###############);\\$#,0.###############",
+            "lineageTag": "16553b61-9883-4b56-a134-92ff17bbb40e",
+            "sourceLineageTag": "8346c63d-23b7-4d99-88c3-d8af36e3c90a"
+          },
+          {
+            "name": "Days per Claim",
+            "dataCategory": "Uncategorized",
+            "expression": "EXTERNALMEASURE(\"Days per Claim\", DOUBLE, \"DirectQuery to AS - HighLoadLake\")",
+            "formatString": "#,0.00",
+            "lineageTag": "ca451777-6b59-4d67-9438-3ffe565a53e2",
+            "sourceLineageTag": "99f1ad9f-7a50-4886-8732-a1a2e3808c66"
+          },
+          {
+            "name": "Rankfact",
+            "changedProperties": [
+              {
+                "property": "Name"
+              }
+            ],
+            "expression": "RANKX(ALLSELECTED(cms_provider_dim_drug[Brnd_Name]),[Total Claims]) ",
+            "formatString": "0",
+            "lineageTag": "f57b5277-6a16-4cc0-9d0b-5e78ed9da5ed"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "cms_provider_drug_costs_star",
+            "mode": "directQuery",
+            "source": {
+              "entityName": "cms_provider_drug_costs_star",
+              "expressionSource": "DirectQuery to AS - HighLoadLake",
+              "type": "entity"
+            }
+          }
+        ],
+        "sourceLineageTag": "93034d76-9930-4575-83ad-fb6a58869315"
+      }
+    ]
+  }
+}
