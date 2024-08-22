@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "MedicarePipeLine"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ea7b82b4-4622-43b0-968e-afbb6d238516"
+  }
+}
